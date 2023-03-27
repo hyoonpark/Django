@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>글 작성</h1>
+  <hr>
+
+  <form action="{% url 'articles:create' %}" method="POST" enctype='multipart/form-data'>
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    {% comment %} <label for="title">제목 : </label>
+    <input type="text" id="title" name="title"><br>
+
+    <label for="content">내용 : </label>
+    <textarea name="content"></textarea><br> {% endcomment %}
+    {% comment %} <input type="text" id="content" name="content"><br> {% endcomment %}
+
+    <input type="submit">
+  </form>
+  <hr>
+  <a href="{% url 'articles:index' %}">뒤로가기</a>
+    
+
+{% endblock content %}
